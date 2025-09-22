@@ -1,10 +1,19 @@
-"""
-Machines are good at crunching numbers - faster and more accurately than most 
-humans! Create a small program that calculates something useful to you 
-(making you smile is useful). It should take user input, at use at least one of the 
-number operators we saw in class: + / * . You may modify one of your previous 
-exercises to include calculations, if you wish.
-
-Remember to design your algorithm in English first, then translate it to Python 
-code. Test as you go!
-"""
+score = 0
+print("Answer this. What is 9+1")
+answer1 = input()
+if answer1 == "10":
+    print("correct")
+    score += 1
+else:
+    print("wrong")
+    
+print("Answer this. What is 9-3")
+answer2 = input()
+if answer2 == "6":
+    print("correct")
+    score += 1
+else:
+    print("wrong)")
+    
+percent = score/2 * 100
+print("your score is " + str(score) + "/2 or " + str(percent) + "%")
