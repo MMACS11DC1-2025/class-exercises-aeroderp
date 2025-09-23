@@ -14,3 +14,12 @@ Judge 4: 8.5
 Judge 5: 9
 Your Olympic score is 8.0
 """
+score = 0
+print("What is his/her score?")
+one = float(input(" first score "))
+two = float(input(" second score "))
+three = float(input(" third score "))
+four = float(input(" fourth score "))
+five = float(input(" fifth score "))
+score = (one + two + three + four + five) / 5
+print("Your final score is " + str(score))
