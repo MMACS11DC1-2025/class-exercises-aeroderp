@@ -25,18 +25,20 @@ Would you like fries for $3? (Yes/No)
 > yes
 Your total is $3.42
 """
-print("Would you like a burger for 5 dollars")
+burger_price = 5
+fries_price = 3
+print("Would you like a burger for " + str(burger_price) + " dollars")
 food1 = input().lower().strip()
-print("Would you like some fries for 3 dollars")
+print("Would you like some fries for "  + str(fries_price) + " dollars")
 food2 = input().lower().strip()
 if food1 == "yes" and food2 == "yes":
-    price = (5 + 3) * 1.14
+    price = (burger_price + fries_price) * 1.14
     print("Your total is " + str(price))
 elif food1 == "yes" and food2 == "no":
-    price2 = (5) * 1.14
+    price2 = (burger_price) * 1.14
     print("Your total is " + str(price2))
 elif food1 == "no" and food2 == "yes":
-    price3 = (3) * 1.14
+    price3 = (fries_price) * 1.14
     print("Your total is " + str(price3))
 elif food1 == "no" and food2 == "no":
     print("Ok")
