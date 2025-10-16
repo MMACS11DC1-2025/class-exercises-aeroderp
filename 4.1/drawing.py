@@ -9,8 +9,7 @@ def draw_circle(x, y):
 	t.penup()
   
 while True:
-	command = input("What do you want me to do?")
-	draw_circle(0, 0)
+	command = input("I will draw circles for you, tell me when to stop")
 	if command == "stop":
 		break 
 	draw_circle(0, 0)
