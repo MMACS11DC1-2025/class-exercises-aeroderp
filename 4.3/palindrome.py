@@ -22,4 +22,6 @@ def isPalindrome(word):
 
 # Run the function on various words, a mix of palindromes and non-palindromes
 for word in ["pop", "racecar", "peep", "peep", "PEPPER", "palindrome"]:
-    print("Is " + word + " a palindrome? " + str(isPalindrome(word)))
+    print("Is " + word + " a palindrome? " + str(isPalindrome(word)))-----------------------////////////////////
+-
+q1qqqqqqqqqqqa
