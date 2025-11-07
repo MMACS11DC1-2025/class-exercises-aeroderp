@@ -138,8 +138,8 @@ Clear fractal structure without overcrowding
 Manageable recursion call counts (7-63 calls)
 Good visualization of recursion concept
 Performance Implications
-Depth 4: 15 calls - Instant rendering
-Depth 6: 63 calls - Fast rendering
+Depth 4: 15 calls - Instant picture
+Depth 6: 63 calls - Fast delivery of picture
 Depth 8: 255 calls - Noticeable delay
 Depth 10: 1023 calls - Very large delay
 
