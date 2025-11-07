@@ -175,9 +175,9 @@ Visual Validation: Check the output matches expected patterns
 Test Cases Executed
 
 Test Case\tInput\tExpected\tActual\tStatus
-TC1	tree, depth = 2	7 calls, baisc tree	7 calls, good tree	
+TC1	tree, depth = 2,	7 calls, baisc tree, good tree	
 
-TC2	trees, depth = 5	63 calls, complex tree	63 calls, detailed tree	
+TC2	trees, depth = 8,	511 calls, complex tree, detailed tree	
 
 TC3 Spirals, 150 Colorful spiral pattern, Correct pattern
 
