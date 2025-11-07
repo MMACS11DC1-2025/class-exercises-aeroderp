@@ -16,36 +16,40 @@ t.hideturtle()  # Hide turtle cursor for cleaner pictures
 
 def tree(branch_length, level):
     """
-    Recursively draws a fractal tree and counts total recursive calls.
+    Recursively draws a fractal tree and returns multiple statistics.
     
-    Arguements:
+    Args:
         branch_length (int): Length of the current branch segment
         level (int): Current recursion depth (decreases until base case)
     
     Returns:
-        int: Total number of recursive calls made during execution
+        dict: Dictionary containing calls, levels, and branches statistics
     """
     # Base case: stop recursion when we reach depth 0
     if level == 0:
-        return 1  # Count this as one recursive call
+        return {"calls": 1, "levels": 1, "branches": 0}
     
     # Draw the main branch
     t.forward(branch_length)
     
     # Draw right subtree, reduces in level and branch length for every recursion
     t.right(20)
-    right_calls = tree(branch_length * 0.7, level - 1)  # Right branch recursion
+    right_stats = tree(branch_length * 0.7, level - 1)  # Right branch recursion
     
     # Draw left subtree, reduces in level and branch length for every recursion
     t.left(40)
-    left_calls = tree(branch_length * 0.7, level - 1)   # Left branch recursion
+    left_stats = tree(branch_length * 0.7, level - 1)   # Left branch recursion
     
     # Return to original position
     t.right(20)
     t.backward(branch_length)
     
-    # Return total recursive calls
-    return 1 + right_calls + left_calls
+    # Return multiple statistics in a dictionary
+    return {
+        "calls": 1 + right_stats["calls"] + left_stats["calls"],
+        "levels": max(right_stats["levels"], left_stats["levels"]) + 1,
+        "branches": 2 + right_stats["branches"] + left_stats["branches"]
+    }
 
 # grab user input for the design they want
 answer = input("spirals, flower, or tree: ")
@@ -122,10 +126,10 @@ elif answer == "tree":
       level = 2
     
     # Execute recursive tree function and grabs return value
-    total_calls = tree(80, level)  # 80 is initial branch length
+    stats = tree(80, level)  # 80 is initial branch length
     
-    # Display recursive call count
-    print("Total recursive calls made:" + str(total_calls))
+    # Display multiple statistics using .format() instead of f-string
+    print("Calls: {}, Max Depth: {}, Total Branches: {}".format(stats['calls'], stats['levels'], stats['branches']))
 
 # used if user gives an invalid answer
 else:
