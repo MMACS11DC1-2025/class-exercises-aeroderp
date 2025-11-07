@@ -18,7 +18,7 @@ def tree(branch_length, level):
     """
     Recursively draws a fractal tree and returns multiple statistics.
     
-    Args:
+    Arguements:
         branch_length (int): Length of the current branch segment
         level (int): Current recursion depth (decreases until base case)
     

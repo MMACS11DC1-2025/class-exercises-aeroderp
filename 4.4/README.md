@@ -77,16 +77,10 @@ Symmetrical branching pattern
 Actual Results:
 
 tree_depth4.png
-
-Recursive Calls: 15
-
-Visual Quality: Fractal branching is clear, with good symmetry.
-
-Performance: Fast rendering, immediate display
+ spirals with 200 spirals
+a tree with 15 recursive calls with a max depth of 5, branch is clear with good symmetry with a fast immedeiate display
 
 Test Case 2: Colorful Spirals
-
-Input: spirals with 200 spirals
 
 Expected Output:
 Multi-colored spiral pattern growing outward
@@ -99,14 +93,10 @@ Actual Results:
 
 spirals_200.png
 
-Visual Quality: Brightly colored, with smooth spiral growth
+brightly coloured with random colours spirals that grow at an increasing range 
 
-Performance: The rendering is slightly delayed because of 200 iterations.
-
-Color Distribution: Random, but balanced color selection
-
-Test Case 3: Sunflower Pattern
-Input: flower with sunflower selection
+Test Case 3: daisy Pattern
+Input: flower with daisy selection
 
 Expected Output:
 
@@ -120,11 +110,7 @@ Actual Results:
 
 daisy_pattern.png
 
-Color Accuracy: Correct white coloration
-
-Pattern Quality: Distinct floral pattern with arrangement of petals
-
-Rendering: Smooth animation during drawing
+A smooth drawing of a white flower with a petal pattern
 
 Recursion Depth Discussion
 
@@ -134,20 +120,18 @@ For this implementation, the reasonable recursion depth range is 2 to 8:
 
 Too Low (Depth < 2):
 
-Depth 1: Single trunk with no branches-not a tree
-
-Depth 2: Minimal branching, lacks fractal complexity
+Depth 1: Single trunk with no branches,not a tree
 
 Why: Not enough levels to show recursive pattern
 
 Too High (Depth > 8):
 
-Depth 9+: 511+ recursive calls, very dense rendering
-Depth 12+: 4095+ calls, potential performance issues
+Depth 9+: 511+ recursive calls, extremely long to print out
+Depth 12+: 4095+ calls, laggy
 
 Why: Exponential growth results in too many function calls and visual clutter
 
-Optimal Range (3-6):
+Optimal Range (2-8):
 
 Clear fractal structure without overcrowding
 
@@ -175,15 +159,15 @@ Visual Validation: Check the output matches expected patterns
 Test Cases Executed
 
 Test Case\tInput\tExpected\tActual\tStatus
-TC1	tree, depth = 2,	7 calls, baisc tree, good tree	
+TC1	tree, depth = 2,	expected: 7 calls, baisc tree, good tree actual:  7 calls, baisc tree, good tree, no differences
 
-TC2	trees, depth = 8,	511 calls, complex tree, detailed tree	
+TC2	trees, depth = 8,	expected: 511 calls, complex tree, detailed tree actual: 511 calls, complex tree, detailed tree, no differences
 
-TC3 Spirals, 150 Colorful spiral pattern, Correct pattern
+TC3 Spirals, expected: 150 colourful spiral pattern, actual: 150 colourful spiral pattern, no differences
 
-TC4	flower, rose	Red flower	Red floral pattern 
+TC4	flower, rose, expected: Red flower, actual: Red floral pattern, no difference
 
-TC5	invalid input	Error message	""Please type." message"	
+TC5	invalid input	expected: Error message	actual: ""Please type." message", since I added a check for invalid answer, this is what will happen when an invalid answer is printed
 
 Debugging Issues
 
@@ -193,7 +177,7 @@ Color Selection: added dictionary look-up for consistent colors
 
 Recursive Call Counting: Added return value accumulation to track calls
 
-Input Validation: Added validation for numeric inputs Validation Approaches Manual Inspection: Visual verification of all the patterns Call Count Verification: Mathematical validation of recursive counts User Testing: Multiple test runs, each with different parameters Boundary Value Testing: Minimum/maximum value checking Technical Implementation Data Structures Dictionary: flower_settings holds color and size settings Lists: Color palettes for spiral patterns Recursive Stack: Implicit stack management for tree recursion Algorithms Binary Recursion: Tree function with two recursive calls per invocation Iterative drawing - spiral and flower patterns with loops Input Validation: Boundary checking and error handling Key Functions tree(branch_length,level): Recursively draws a fractal tree, counting calls User Input Handling With Validation Pattern-specific drawing routines Conclusion This project effectively employs recursive algorithms in visual Turtle graphics. The implementation was very clear on recursion, proper handling of the base case, problem size reduction, and meaningful return values. This program is interactive for the user and educational regarding concepts in computer science.
+Input validation: Added validation for numeric inputs: Visual verification of all the patterns Call Count verification: mathematical validation of recursive counts User Testing: Multiple test runs, each with different parameters Boundary Value Testing: Minimum/maximum value checking implementation of data structures dictionary: flower_settings holds color and size settings Lists: Color palettes for spiral patterns Recursive Stack:stack management for tree recursion Algorithms Binary Recursion: Tree function with two recursive calls per invocation iterative drawing - spiral and flower patterns with loops input validation: Boundary checking and error handling Key Functions tree(branch_length,level): Recursively draws a fractal tree, counting calls user input handling With validated pattern-specific drawing routines conclusion. This project effectively shows the recursive algorithms in visual Turtle graphics. The implementation was very clear on recursion, proper handling of the base case, problem size reduction, and meaningful return values. This program is interactive for the user and educational regarding concepts in computer science.
 
 
 Karson's review on my project -
