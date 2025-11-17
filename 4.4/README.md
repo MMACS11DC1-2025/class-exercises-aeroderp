@@ -1,184 +1,19 @@
-Fractal Art Generator:
-Overview of the Project
-This program is able to create beautiful fractal patterns using recursive algorithms and turtle graphics. Moreover, it enables users to create three types of visual arts: colorful spirals, floral patterns, and recursive fractal trees. The project also employs some core computer science concepts such as recursion, data structures, and user interaction.
+This project creates unique flower designs using Python’s turtle graphics and some lines of code. The output of the flower petals can be random colours or a colour from decided from the user's input. Each flower starts with a set number of petals provided by the user's input, and with each recursion the flower rotates slightly and removes a petal. To run the program, you need the python 3.x installed turtle module, and the file, main.py. When you run the program, it will ask you for your input on the colour of the flower. Do you want random colours, or do you want to pick your own? If you said random, the program will generate you random colours for your petals, but if you said to choosen your own colours,  you will have to choose a colour from the rainbow. If you don't choose one of the 6 colours on the rainbow, the program tell you to choose one of the six options next time you run the program. Once you are done with that the program will ask for the amount of petals you want in the flower. There is a limit on how many petals you want. With petals less than 10, there is not a clear visualization of the picture of the flower, effects are minimal, and does not look appealing. With petals more than 45, it may start to lag the device causing it to crash, or take a very long time to finish drawing. That is why when the user ask for less than 10 petals, we make the flower still draw the minimum amount of petals (10) , and when the user ask for more than 45 petals, we draw the maximum amount of petals (45). Choosing the right balance (I chose between 10-45) can give a smooth animation, and can look visually appealing. After the programs finishes running, it will report the amount of recursion done with the amount of petals the user gave the flower. The recursion depth is equal to the number of petals in the flower. Too few petals (ten or less) produce a flower that is barely a flower, and too many petals (over 45) creates a very large recursion amount, which can slow the program or crash it. A reasonable recursion depth is 10–45 petals to have a visually appealing flower without crashing or lagging. The program uses a recursive function that draws one petal, rotates the flower, and calls itself again with one less petal until the base case (0 petals) is reached. Each recursive call contributes adds to recursion ammount to check how many times the program used recursion.
 
-Features:
 
-Recursive Tree: Fractal tree that branches recursively with call counting
+Example 1: (Check blue_flower.png and blue_flower2.png) User input: blue, 1. Blue is for the colour of the flower and one is supposed to be for the amount of petals, but since it is less than 10, it goes to the minimum amount of petals (10). In blue_flower.png, you can see 9 petals, one of the petals are already gone a few moments after running the program. In blue_flower2.png, you can see no more petals remain and the program ends with the amount of recursion the program did.
 
-Spiral Patterns: Colorful concentric spirals with random color selection
 
-Flower Designs: Preset flower designs based on dictionary settings
+Example 2: (Check random_flower.png and random_flower2.png) User input: random, 100. random is for the random colours of the flower and 100 is supposed to be for the amount of petals, but since it is more than 45, it goes to  the maximum amount of petals (100). In random_flower.png, you can see the 45 petals. In random_flower2.png, you can see no more petals remain and the program ends with the amount of recursion the program did.
 
-User Interaction: Dynamic input to customize all visual outputs
 
-Call Counting: Keeps track and displays the total recursive function calls.
-How to Run the Program
+Testing and Debugging: I tested the program by trying different numbers of petals and petal sizes to see how the flowers looked. For example, starting with 5 petals produced a small flower, while 45 petals created a larger, more detailed flower that then shrinks as the loop decreases the count. I tested how the rbg and chosen colour worked. For example, would rbg give me the same random colours or not, and would the chosen colour be the colour that was printed. The answer was no to the rbg and yes to the own colours. Petals overlapped in weird ways when the turning angle wasn’t calculated correctly. I had to make all the petals the same length and start at the same place rotated slightly to the side to get rid of overlapping. I had to use screen.tracer() to get rid of slow drawings and just get the fast and smooth animation of the drawing. I had to set a delay on my turtle in order to see the recursion or else within the blink of an eye, all the recursion would happen. I had to clear the screen each time for recursion or else the old flower would still show instead of only the new flower. For each test case, I compared the expected output, such as the correct number of petals and the proper colors, with the actual result. I made sure to test many situations. For example, if the user input a number more than 45 or less than 10, if they did not enter random or own, or if they did not enter a valid colour.
 
-Prerequisites
 
-Python 3.x installed
-Turtle module (comes with standard Python installation)
-Execution
+Challenges faced: A challenge I faced was handling large numbers of petals, which created many recursive calls and could slow down the program. I also had to carefully manage the turning angles, because a small mistake would be repeated in every recursive call, making the flower look uneven. I had to figure out a way to make sure the user could see the recursion happening with the flower petals disappearing one by on.
 
-python fractal_art.py
 
-Usage:
+Test case 1: User inputs purple for the colour of the flower, 23 petals. Expected output: a purple flower that decreases a petal for each recursion from 23 petals until it reaches 0 and prints out the amount of recursion that it is supposed to print (276). Actual output: a purple flower that decreases a petal for each recursion from 23 petals until it reaches 0 and prints the recursion amount, 276 (no changes).
 
-Run the program
 
-Choose between the following: spirals, flower, tree
-
-Follow prompts to customize your selection:
-
-Spirals: Select number of spirals (100-500)
-Flower: Fill in flower type: rose, sunflower, marigold, daisy
-
-Tree: Set recursion depth (2-8 levels)
-
-Recursive Approach Explanation
-
-Tree Function Recursion
-
-The tree() function uses a classic binary recursion pattern:
-
-Base case: if level==0 then the recursion stops and returns 1 (counting the call)
-
-Recursive Case: For each branch, the function:
-
-Draws the current branch segment
-
-Makes two recursive calls for left and right subtrees
-
-Reduces the problem size, decreasing level and branch length
-
-Returns to original position for proper branching
-
-Mathematical Foundation: Number of recursive calls is given by the formula 2^(depth+1) - 1, which shows exponential growth due to binary recursion.
-Why Recursion Works
-Self-similarity: Fractal trees repeat their branching pattern at every scale.
-
-Problem Reduction: Each recursive call deals with a smaller subproblem - shorter branches, lower depth
-
-
-Visual Outputs:
-
-Test Case 1: Recursive Tree (Depth 4)
-
-Input: tree with depth 4
-
-Expected Output:
-
-Brown fractal tree with clear branching structure
-
-About 15 recursive calls
-Symmetrical branching pattern
-
-Actual Results:
-
-tree_depth4.png
- spirals with 200 spirals
-a tree with 15 recursive calls with a max depth of 5, branch is clear with good symmetry with a fast immedeiate display
-
-Test Case 2: Colorful Spirals
-
-Expected Output:
-Multi-colored spiral pattern growing outward
-
-Smooth color transitions
-
-Concentric circle pattern
-
-Actual Results:
-
-spirals_200.png
-
-brightly coloured with random colours spirals that grow at an increasing range 
-
-Test Case 3: daisy Pattern
-Input: flower with daisy selection
-
-Expected Output:
-
-White floral pattern with petal-like structure
-
-Decreasing circle sizes creating flower effect
-
-Smooth rotational pattern
-
-Actual Results:
-
-daisy_pattern.png
-
-A smooth drawing of a white flower with a petal pattern
-
-Recursion Depth Discussion
-
-Reasonable Depth Range
-
-For this implementation, the reasonable recursion depth range is 2 to 8:
-
-Too Low (Depth < 2):
-
-Depth 1: Single trunk with no branches,not a tree
-
-Why: Not enough levels to show recursive pattern
-
-Too High (Depth > 8):
-
-Depth 9+: 511+ recursive calls, extremely long to print out
-Depth 12+: 4095+ calls, laggy
-
-Why: Exponential growth results in too many function calls and visual clutter
-
-Optimal Range (2-8):
-
-Clear fractal structure without overcrowding
-
-Manageable recursion call counts (7-63 calls)
-Good visualization of recursion concept
-Performance Implications
-Depth 4: 15 calls - Instant picture
-Depth 6: 63 calls - Fast delivery of picture
-Depth 8: 255 calls - Noticeable delay
-Depth 10: 1023 calls - Very large delay
-
-
-Testing and Debugging Process
-
-Test Strategy
-
-Unit Testing: Test each pattern type separately
-
-Boundary Value Testing: Test the minimum and maximum values for inputs
-
-Error Handling: Test invalid inputs weird cases
-
-Visual Validation: Check the output matches expected patterns
-
-Test Cases Executed
-
-Test Case\tInput\tExpected\tActual\tStatus
-TC1	tree, depth = 2,	expected: 7 calls, baisc tree, good tree actual:  7 calls, baisc tree, good tree, no differences
-
-TC2	trees, depth = 8,	expected: 511 calls, complex tree, detailed tree actual: 511 calls, complex tree, detailed tree, no differences
-
-TC3 Spirals, expected: 150 colourful spiral pattern, actual: 150 colourful spiral pattern, no differences
-
-TC4	flower, rose, expected: Red flower, actual: Red floral pattern, no difference
-
-TC5	invalid input	expected: Error message	actual: ""Please type." message", since I added a check for invalid answer, this is what will happen when an invalid answer is printed
-
-Debugging Issues
-
-Initial Tree Orientation: Fixed by adding t.left(90) to point upward
-
-Color Selection: added dictionary look-up for consistent colors
-
-Recursive Call Counting: Added return value accumulation to track calls
-
-Input validation: Added validation for numeric inputs: Visual verification of all the patterns Call Count verification: mathematical validation of recursive counts User Testing: Multiple test runs, each with different parameters Boundary Value Testing: Minimum/maximum value checking implementation of data structures dictionary: flower_settings holds color and size settings Lists: Color palettes for spiral patterns Recursive Stack:stack management for tree recursion Algorithms Binary Recursion: Tree function with two recursive calls per invocation iterative drawing - spiral and flower patterns with loops input validation: Boundary checking and error handling Key Functions tree(branch_length,level): Recursively draws a fractal tree, counting calls user input handling With validated pattern-specific drawing routines conclusion. This project effectively shows the recursive algorithms in visual Turtle graphics. The implementation was very clear on recursion, proper handling of the base case, problem size reduction, and meaningful return values. This program is interactive for the user and educational regarding concepts in computer science.
-
-
-Karson's review on my project -
-The quality is exceptional, reflecting careful craftsmanship and attention to detail. Along with the approach; quite modern and sleek. Overall Greysen has met my standards and exceeded them with style and design. Bravo!
+Test case 2: User inputs random for the colour of the flower, 78 petals. Expected output: a flower with random colours for its petals that decreases a petal for each recursion from 45 petals until it reaches 0 and prints out the amount of recursion that it is supposed to print (1035). Actual output: random coloured petals for a flower that decreases a petal for each recursion from 45 petals until it reaches 0 and prints the recursion amount,1035 (no changes).
