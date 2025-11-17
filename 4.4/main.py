@@ -93,7 +93,7 @@ if petal_count > 45:
   petal_count = 45
   print("petal count is too high, going back to the maximum petal amount")
 # setting a minimum petal amount for recursion
-elif petal_count < 2:
+elif petal_count < 10:
   petal_count = 10
   print("petal count is too low, going back to the minimum petal amount")
   
