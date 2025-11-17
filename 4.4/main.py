@@ -21,7 +21,7 @@ def random_color():
   return (r, g, b)
 
 # grab user input for colour choices
-answer = input("do you want random or choose your own colours for petals(random/own) ")
+answer = input("do you want random or choose your own colours for petals? (random/own) ")
 if answer == "own":
     colour_choices = {
         "red": {"color": "red"},
