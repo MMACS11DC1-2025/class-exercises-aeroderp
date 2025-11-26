@@ -1,4 +1,4 @@
-#Tutorial used: https://www.youtube.com/watch?v=iaWQoHIsQoc , https://www.askpython.com/python/examples/generate-random-colors , https://stackoverflow.com/questions/73663/how-do-i-terminate-a-script
+# Tutorial used: https://www.youtube.com/watch?v=iaWQoHIsQoc , https://www.askpython.com/python/examples/generate-random-colors , https://stackoverflow.com/questions/73663/how-do-i-terminate-a-script
 import turtle
 import math
 import random
