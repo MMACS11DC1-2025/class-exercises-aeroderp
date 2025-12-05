@@ -8,12 +8,13 @@ def colour(r, g, b):
         return "other"
 
 
-blue_pixels = []
 
-image_list = ["ocean1.png", "ocean2.jpg", "ocean3.jpg" "ocean4.jpg" "ocean5.webp" "ocean6.png" "ocean7.png" "ocean8.png" "ocean9.png" "ocean10.png"]
+image_list = ["ocean1.jpg", "ocean2.jpg", "ocean3.jpg", "ocean4.jpg", "ocean5.webp", "ocean6.webp", "ocean7.jpg", "ocean8.webp", "ocean9.jpg", "ocean10.jpg"]
 
-for image in image_list:
+for i in range(len(image_list)):
+    image = image_list[i]
     file = Image.open("6.7/" + image)
+    blue_pixels = []
     width = file.width
     height = file.height
     jb_image = file.load()
@@ -30,10 +31,10 @@ for image in image_list:
     t1 = time.time()
     time_taken = t1 - t0
     percent_blue = (len(blue_pixels)/(width*height))*100
-    timing = "This program took {:.2f} seconds to run.".format(time_taken)
+
+    timing = "ocean" + str(i+1) +  " took {:.2f} seconds to run.".format(time_taken)
     print(timing)
     print("there are " + str(len(blue_pixels)) + " blue pixels in the image")
     print("there are " + str(width*height) + " total pixels in the image")
-    percentage = "the percentage of blue pixels is {:.2f}%".format(percent_blue)
-    print(percentage)
-    image_output.save("ocean_output.png", "png")
+    print("the percentage of blue pixels is {:.2f}%\n".format(percent_blue))
+    

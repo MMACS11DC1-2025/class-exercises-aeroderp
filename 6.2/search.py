@@ -15,3 +15,6 @@ for line in file:
 print("Dance score \tSong")
 for item in drake_data:
 	print(str(item[0]) + "\t\t" + item[1] + " by " + item[2])
+
+song = drake_data[:100]
+print(song) 
