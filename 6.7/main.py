@@ -51,7 +51,7 @@ for i in range (len(results)):
             biggest_index = j
     results[i], results[biggest_index] = results[biggest_index], results[i]
 
-# binary search for minimum percentage wanted
+# binary search for image closest to minimum percentage but not below the minimum percentage
 def search_min_results(results, min_percent):
     minimum = 0
     maximum = len(results)-1
@@ -59,15 +59,16 @@ def search_min_results(results, min_percent):
     while minimum <= maximum:
         mid = (minimum + maximum) // 2
 
-        if results[mid][1] = min_percent:
-            return mid
-        elif results[mid][1] < min_percent:
-            maximum = mid - 1
-        else:
+        if results[mid][1] >= min_percent:
             minimum = mid + 1
+        else:
+            maximum = mid - 1
 
-    
-    return -1
-print(search_min_results(results, 30))
+    return minimum - 1
+print("the image with the closest minimum is image " + str(search_min_results(results, 67)))
 
-    
+top5 = results[:5]
+print("The top 5 images with the highest percentage of blue pixels are:")
+for i in range(len(top5)):
+    print(i+1, top5[i][0], "{:.2f}%".format(top5[i][1]))
+
