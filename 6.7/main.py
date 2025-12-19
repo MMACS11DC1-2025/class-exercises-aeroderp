@@ -1,15 +1,17 @@
 from PIL import Image
 import time
+# detects a  blueish-green pixel colour
+# needed to adjust these values to withstand bright and dark light to get the best results
 def is_target_colour(r, g, b):
-    if r <= 100 and g <= 200 and b <= 250:
+    if b > r + 15 and b > g - 5: 
         return "blue"
-    else:
-        return "other"
+    return "not blue"
 
 
-
+# the ten images needing to be analyzed
 image_list = ["ocean1.jpg", "ocean2.jpg", "ocean3.jpg", "ocean4.jpg", "ocean5.webp", "ocean6.webp", "ocean7.jpg", "ocean8.webp", "ocean9.jpg", "ocean10.jpg"]
 
+# master list to store each image and the amount of blue pixels in each image
 results = []
 
 for i in range(len(image_list)):
@@ -28,14 +30,16 @@ for i in range(len(image_list)):
             g = jb_image[x, y][1]
             b = jb_image[x, y][2]
             
+            # the formula needed to weigh bluer pixels more heavily than lighter blue pixels or darker blue pixels
+            
             if is_target_colour(r,g,b) == "blue":
-                blue_pixels += 1
+                blue_pixels += ((b - ((r + g) / 2)) / 255) ** 0.5 
     t1 = time.time()
     
     time_taken = t1 - t0
     percent_blue = (blue_pixels/(width*height))*100
 
-    timing = "ocean" + str(i+1) +  " took {:.3f} seconds to run.".format(time_taken)
+    timing = "ocean" + str(i+1) +  " took {:.3f} seconds to scan every pixel in the image.".format(time_taken)
     print(timing)
     print("there are " + str(blue_pixels) + " blue pixels in the image")
     print("there are " + str(width*height) + " total pixels in the image")
