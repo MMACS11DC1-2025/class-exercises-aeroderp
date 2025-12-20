@@ -11,7 +11,7 @@ Image: ocean2, percentage of blue pixels: 39.45%, time taken for the program to 
 
 
 PERFORMANCE ANALYSIS:
-Pixel scanning takes up most of the time reported back to you because every pixel has to be examined. Sorting and searching the images do not take a lot of time because all the info you need has already been achieved by pixel scanning, and there are not many images to sort or use binary search on. This shows you that pixel scanning and image resolution are the major impact on performance of the program. You can compare an image like ocean2 with an image like ocean10. Ocean10 clearly has lower resolution, while ocean2 has a higher resolution which means ocean2 would take more time to process.
+Pixel scanning takes up most of the time reported back to you because every pixel has to be examined. Sorting and searching the images do not take a lot of time because all the info you need has already been achieved by pixel scanning, and there are not many images to sort or use binary search on. This shows you that pixel scanning and image resolution are the major impact on performance of the program. You can compare an image like ocean2 with an image like ocean10. Ocean10 clearly has lower resolution, while ocean2 has a higher resolution which means ocean2 would take more time to process.  The slowest part of this program is scanning every pixel in each image, because every pixel must be checked one by one. Images with higher resolution will take a longer time than one with a lower resolution. Sorting and binary search are faster because they work with a small list of image results. This program is designed so each image is scanned only once to avoid more work.
 
 
 CHALLENGES FACED:
